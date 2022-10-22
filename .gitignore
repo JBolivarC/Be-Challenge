@@ -1,0 +1,5 @@
+requests
+node_modules
+build
+db.sql
+.env
