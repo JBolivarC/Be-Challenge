@@ -81,6 +81,7 @@ export class CompetitionService {
             let dbPlayer: Player
             try {
               dbPlayer = await this.playerRepository.GetById(player.id)
+              dbTeam.players.push(dbPlayer)
             } catch (error) {
               if(error instanceof NotFoundError) {
                 dbTeam.players.push(player)
@@ -96,6 +97,7 @@ export class CompetitionService {
             let dbCoach: Coach
             try {
               dbCoach = await this.coachRepository.GetById(team.coach.id)
+              dbTeam.coach = dbCoach
             } catch (error) {
               if(error instanceof NotFoundError) {
                 dbTeam.coach = team.coach
